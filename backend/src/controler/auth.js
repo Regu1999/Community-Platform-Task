@@ -3,6 +3,7 @@ import bcryptjs from 'bcryptjs';
 
 import { createJSONToken, isValidPassword } from '../util/auth.js';
 import Users from '../model/Users.js';
+import Posts from '../model/Posts.js';
 
 const { hash } = bcryptjs;
 
@@ -101,7 +102,9 @@ export const getProfile = async (req, res, next) => {
       error.statusCode = 401;
       throw error;
     }
-    res.status(200).json(user)
+
+    const posts = await Posts.find({ userId: user._id }).select({ userId: 0 })
+    res.status(200).json({ user, posts })
 
   } catch (error) {
     next(error)

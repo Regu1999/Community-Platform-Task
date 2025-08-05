@@ -4,6 +4,7 @@ import cookieParser from 'cookie-parser';
 import cors from "cors";
 import 'dotenv/config';
 
+import postRouter from "../src/routes/post.js"
 import authRouter from "../src/routes/auth.js"
 import connectDb from '../src/config/db.js';
 import { NotFoundError } from '../src/util/errors.js';
@@ -20,6 +21,7 @@ app.use(cors({
 }));
 
 app.use(authRouter);
+app.use(postRouter);
 
 app.use((req, res, next) => {
   if (req.method === 'OPTIONS') {
