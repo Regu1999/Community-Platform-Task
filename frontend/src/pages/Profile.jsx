@@ -6,7 +6,7 @@ import { useNavigate } from "react-router";
 import profile from '../assets/dummy-profile-oic.jpg'
 import Loader from "../component/UI/Loader";
 import { createNotification } from "../store/notification";
-import Post from "../component/Ui/Post";
+import Post from "../component/UI/Post";
 import { getMyPost, logout } from '../http'
 import useNotification from "../hooks/useNotification";
 import { emptyToken } from "../store/token";
