@@ -10,8 +10,6 @@ import connectDb from '../src/config/db.js';
 import { NotFoundError } from '../src/util/errors.js';
 const app = express();
 
-app.use(bodyParser.json());
-app.use(cookieParser())
 
 const CROS_ORIGIN_URL = process.env.CROS_ORIGIN_URL;
 
@@ -20,6 +18,8 @@ app.use(cors({
   credentials: true
 }));
 
+app.use(bodyParser.json());
+app.use(cookieParser())
 app.use(authRouter);
 app.use(postRouter);
 
