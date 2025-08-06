@@ -39,7 +39,7 @@ const Profile = () => {
         }
     }, [isMutateError, mutateError]);
 
-    return <div className="bg-[#fefaf1] min-h-[calc(100vh-96px)] flex justify-center p-3">
+    return <div className="bg-[#fefaf1] min-h-[calc(100vh-96px)] flex justify-center p-1 md:p-3">
         <div className="max-w-[50rem] w-full border border-gray-200 bg-white rounded-xl overflow-hidden bg-contain bg-no-repeat">
             <img src="/assets/dummy-baner.jpg" className='w-full' alt="" />
             <div className='px-8'>
