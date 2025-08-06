@@ -103,7 +103,7 @@ export const getProfile = async (req, res, next) => {
       throw error;
     }
 
-    const posts = await Posts.find({ userId: user._id }).select({ userId: 0 })
+    const posts = await Posts.find({ userId: user._id }).sort({ createdAt: -1 }).select({ userId: 0 })
     res.status(200).json({ user, posts })
 
   } catch (error) {

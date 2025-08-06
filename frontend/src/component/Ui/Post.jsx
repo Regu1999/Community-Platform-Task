@@ -7,7 +7,7 @@ import { motion } from "motion/react"
 import profile from "../../assets/dummy-profile-oic.jpg"
 import { timeAgo } from '../../util/timeConverter.js'
 
-const Post = ({ name, text, createdAt }) => {
+const Post = ({ name, text, createdAt, followBtn = true }) => {
     const time = timeAgo(createdAt);
     const isMediumDevice = useMediaQuery({ query: '(min-width: 48rem)' })
 
@@ -21,11 +21,11 @@ const Post = ({ name, text, createdAt }) => {
                     <small className="text-gray-400">{time}</small>
                 </div>
             </div>
-            <div>
+            {followBtn ? <div>
                 <motion.button
                     whileTap={{ scale: .9 }}
                     className="bg-blue-500 p-1 px-3 rounded-xl text-white cursor-pointer">follow</motion.button>
-            </div>
+            </div>:''}
         </div>
         <p className="text-2xl mt-3">
             {text}

@@ -68,7 +68,20 @@ export const getPost = async (token) => {
         throw err
     }
 }
+export const getMyPost = async (token) => {
+    try {
+        const { data } = await api.get('/profile', {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
 
+        return data
+    } catch (error) {
+        const err = new Error(error?.response?.data?.message || error.message || "Network Error");
+        throw err
+    }
+}
 export const createPost = async (token, formData) => {
     try {
         const { data } = await api.post('/post', formData, {
