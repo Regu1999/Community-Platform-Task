@@ -54,6 +54,36 @@ export async function logout(token) {
 
 }
 
+export const getPost = async (token) => {
+    try {
+        const { data } = await api.get('/posts', {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        return data
+    } catch (error) {
+        const err = new Error(error?.response?.data?.message || error.message || "Network Error");
+        throw err
+    }
+}
+
+export const createPost = async (token, formData) => {
+    try {
+        const { data } = await api.post('/post', formData, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        return data
+    } catch (error) {
+        const err = new Error(error?.response?.data?.message || error.message || "Network Error");
+        throw err
+    }
+}
+
 export async function getProfile(token) {
 
     try {

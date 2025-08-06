@@ -21,9 +21,9 @@ const NavBar = () => {
             <Link to="auth?mode=login" className="p-1 px-3 md:p-3 focus:outline-0 my-3 md:px-5 rounded-full cursor-pointer border border-[#0a66c2] text-[#0a66c2] hover:bg-blue-50">Sign In</Link>
         </div> :
             <div className="flex gap-5 items-center">
-                <motion.div whileTap={{ scale: 0.9 }} >
+               {isMediumDevice&& <motion.div whileTap={{ scale: 0.9 }} >
                     <Link to='/' className="flex flex-col items-center hover:text-[#0a66c2]"><IoMdHome className="text-3xl mb-0.5" /> <p>Home</p></Link>
-                </motion.div>
+                </motion.div>}
 
                 <motion.div whileTap={{ scale: 0.9 }} >
                     <Link to={"profile/regu"} className="cursor-pointer flex flex-col items-center hover:text-[#0a66c2]">

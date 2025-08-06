@@ -9,7 +9,7 @@ import LoadingCard from "./component/UI/LoadingCard.jsx";
 const Home = lazy(() => import("./pages/Home"))
 const Profile = lazy(() => import("./pages/Profile"))
 const Auth = lazy(() => import("./pages/Auth"))
-const NotFound = lazy(() => import("./component/Ui/NotFound.jsx"))
+const NotFound = lazy(() => import("./component/UI/NotFound.jsx"))
 
 const SuspenseContainer = ({ children }) => {
   return <Suspense fallback={<LoadingCard />}>{children}</Suspense>

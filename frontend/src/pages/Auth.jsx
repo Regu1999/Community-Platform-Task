@@ -2,9 +2,9 @@ import { Link, useSearchParams, useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 
-import FormBackground from "../component/UI/FormBackground";
+import FormBackground from "../component/UI/FormBackground.jsx";
 import { authendication } from '../http.js'
-import { TextFeild, EmailFeild, PasswordFeild } from "../component/UI/Inputs";
+import { TextFeild, EmailFeild, PasswordFeild } from "../component/UI/Inputs.jsx";
 import { addToken } from "../store/token.js";
 import Card from "../component/UI/Card.jsx";
 import useNotification from "../hooks/useNotification.js";
@@ -27,7 +27,10 @@ const Auth = () => {
             notification({ message: error.message, status: 'error', info: error.info })
         }
     }
-    let newPwd = watch("newPwd")
+     let newPwd;
+    if (!loginMode) {
+        newPwd = watch("newPwd")
+    }
     return <FormBackground>
         <Card>
             <h1 className="text-2xl my-6 font-bold">{loginMode ? "Login" : "Sign Up"}</h1>
