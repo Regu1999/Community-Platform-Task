@@ -27,7 +27,7 @@ const Post = ({ name, text, createdAt, followBtn = true }) => {
                     className="bg-blue-500 p-1 px-3 rounded-xl text-white cursor-pointer">follow</motion.button>
             </div>:''}
         </div>
-        <p className="text-2xl mt-3">
+        <p className="text-lg mt-3">
             {text}
         </p>
         <div className="flex gap-2 justify-center">
