@@ -17,7 +17,7 @@ export default function RootLayout() {
         if (notificationStatus && notificationMessage) {
             timerRef.current = setTimeout(() => {
                 dispatch(removeNotification())
-            }, 4000)
+            }, 5000)
         }
         return () => {
             clearTimeout(timerRef.current)
