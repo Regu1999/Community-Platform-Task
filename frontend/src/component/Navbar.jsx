@@ -17,8 +17,8 @@ const NavBar = () => {
                 : <SiLinkedin className="text-[#0a66c2] text-3xl" />}
         </Link>
         {!token ? <div className="flex md:gap-6">
-            <Link to="auth?mode=login" className="p-1 px-3 md:p-3 focus:outline-0 my-3 md:px-5 rounded-full cursor-pointer hover:bg-gray-100">Join now</Link>
-            <Link to="auth?mode=signup" className="p-1 px-3 md:p-3 focus:outline-0 my-3 md:px-5 rounded-full cursor-pointer border border-[#0a66c2] text-[#0a66c2] hover:bg-blue-50">Sign In</Link>
+            <Link to="auth?mode=signup" className="p-1 px-3 md:p-3 focus:outline-0 my-3 md:px-5 rounded-full cursor-pointer hover:bg-gray-100">Join now</Link>
+            <Link to="auth?mode=login" className="p-1 px-3 md:p-3 focus:outline-0 my-3 md:px-5 rounded-full cursor-pointer border border-[#0a66c2] text-[#0a66c2] hover:bg-blue-50">Sign In</Link>
         </div> :
             <div className="flex gap-5 items-center">
                 <motion.div whileTap={{ scale: 0.9 }} >
