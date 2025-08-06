@@ -42,7 +42,7 @@ const Profile = () => {
     return <div className="bg-[#fefaf1] min-h-[calc(100vh-96px)] flex justify-center p-1 md:p-3">
         <div className="max-w-[50rem] w-full border border-gray-200 bg-white rounded-xl overflow-hidden bg-contain bg-no-repeat">
             <img src="/assets/dummy-baner.jpg" className='w-full' alt="" />
-            <div className='px-8'>
+            <div className='px-2 md:px-8'>
                 <div className="flex justify-between items-center">
                     <img src={profile} alt="profile" className='w-20 h-20 rounded-full' />
                     <div>
@@ -54,7 +54,7 @@ const Profile = () => {
                 <h3 className="font-semibold">About</h3>
                 <p className='md:max-w-[80%]'>{data?.user.bio}</p>
             </div>
-            <div className="px-8 mt-5">
+            <div className="px-2 md:px-8 mt-5">
                 <h3 className="font-semibold mb-5 text-2xl">My Posts</h3>
 
                 {isLoading ? <Loader /> : <div className='max-w-[50rem] w-full flex flex-col gap-3'>
