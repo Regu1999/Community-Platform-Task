@@ -31,8 +31,6 @@ export async function autoLogin() {
         const { data } = await api.get('/autoLogin', {
             withCredentials: true
         });
-        console.log(data);
-        
         return data
     } catch (error) {
         const err = new Error(error?.response?.data?.message || error.message || "Network Error");
