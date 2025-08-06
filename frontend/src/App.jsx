@@ -27,7 +27,7 @@ function App() {
         <Route path="/" element={<SuspenseContainer><RootLayout /></SuspenseContainer>}>
           <Route index element={<SuspenseContainer><Home /></SuspenseContainer>} />
           <Route path="auth" element={<SuspenseContainer><Auth /></SuspenseContainer>} />
-          <Route path="profile/:userName" element={<Profile />} />
+          <Route path="profile" element={<Profile />} />
           <Route path="*" element={<SuspenseContainer><NotFound /></SuspenseContainer>} />
         </Route>
       </Routes>

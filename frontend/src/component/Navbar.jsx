@@ -26,7 +26,7 @@ const NavBar = () => {
                 </motion.div>}
 
                 <motion.div whileTap={{ scale: 0.9 }} >
-                    <Link to={"profile/regu"} className="cursor-pointer flex flex-col items-center hover:text-[#0a66c2]">
+                    <Link to={"profile"} className="cursor-pointer flex flex-col items-center hover:text-[#0a66c2]">
                         <div className="w-8 h-8 rounded-full overflow-hidden">
                             <img src={profilePic} alt="Regu" className="bg-cover h-full" />
                         </div>
