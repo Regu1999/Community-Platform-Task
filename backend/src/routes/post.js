@@ -1,7 +1,7 @@
 import express from 'express'
 import { body } from "express-validator"
 
-import { createPost, getPosts } from '../controler/post.js'
+import { createPost, getPosts, deletePost, updatePost } from '../controler/post.js'
 import { checkAuth } from "../util/auth.js"
 
 const router = express.Router();
@@ -12,5 +12,8 @@ router.post('/post', checkAuth, body('text', 'Canot post empty message').trim().
 
 router.get('/posts', checkAuth, getPosts);
 
+router.put('/updatePost', checkAuth, updatePost)
+
+router.delete('/delete/:postId', checkAuth, deletePost)
 
 export default router;
