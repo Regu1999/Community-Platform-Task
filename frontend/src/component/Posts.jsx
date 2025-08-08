@@ -7,7 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useSelector, useDispatch } from 'react-redux';
 import { AnimatePresence } from 'motion/react';
 
-import Post from './Ui/Post'
+import Post from './UI/Post'
 import profile from "../assets/dummy-profile-oic.jpg"
 import { getPost } from "../http"
 import { createNotification } from "../store/notification"
