@@ -110,3 +110,36 @@ export async function getProfile(token) {
         throw err
     }
 }
+
+export async function updatePost(token, formData) {
+
+    try {
+        const { data } = await api.put('/updatePost', formData,{
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+        console.log(data);
+        
+        return data
+    } catch (error) {
+        const err = new Error(error?.response?.data?.message || error.message || "Network Error");
+        throw err
+    }
+}
+
+export async function deletePost(token, postId) {
+    console.log(postId);
+    
+    try {
+        const { data } = await api.delete('/delete/'+postId,{
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });        
+        return data
+    } catch (error) {
+        const err = new Error(error?.response?.data?.message || error.message || "Network Error");
+        throw err
+    }
+}

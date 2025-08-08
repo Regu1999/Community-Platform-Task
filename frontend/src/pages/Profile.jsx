@@ -10,6 +10,7 @@ import Post from "../component/UI/Post";
 import { getMyPost, logout } from '../http'
 import useNotification from "../hooks/useNotification";
 import { emptyToken } from "../store/token";
+import Spiner from "../component/UI/Spiner";
 
 const Profile = () => {
     const navigate = useNavigate()
@@ -25,7 +26,7 @@ const Profile = () => {
         dispatch(createNotification({ message: error.message, status: 'error' }))
     }
 
-    const { mutate, isError: isMutateError, error: mutateError } = useMutation({
+    const { mutate, isError: isMutateError, error: mutateError, isPending: mutateIsPending } = useMutation({
         mutationFn: () => logout(token),
         onSuccess: (dataVal) => {
             notification({ message: dataVal.message + "!", status: "success" })
@@ -46,7 +47,7 @@ const Profile = () => {
                 <div className="flex justify-between items-center">
                     <img src={profile} alt="profile" className='w-20 h-20 rounded-full' />
                     <div>
-                        <button onClick={() => mutate()}  className="bg-blue-500 p-2 px-3 rounded-full text-white font-semibold cursor-pointer">Logout</button>
+                        <button onClick={() => mutate()} className="bg-blue-500 p-2 px-3 rounded-full text-white font-semibold cursor-pointer min-w-20">{mutateIsPending ? <Spiner textColor="text-white" /> : 'Logout'}</button>
                     </div>
                 </div>
                 <h3 className='text-2xl font-semibold'>{data?.user.name}</h3>
@@ -60,7 +61,7 @@ const Profile = () => {
                 {isLoading ? <Loader /> : <div className='max-w-[50rem] w-full flex flex-col gap-3'>
                     {
                         !isError && data?.posts.length == 0 ? <h1 className='text-center'>No post created yet!</h1> : data.posts.map(post => {
-                            return <Post key={post._id} followBtn={false} name={data.user.name} text={post.text} createdAt={post.createdAt} />
+                            return <Post key={post._id} id={post._id} followBtn={false} name={data.user.name} text={post.text} createdAt={post.createdAt} />
                         })
                     }
 

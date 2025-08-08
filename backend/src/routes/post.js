@@ -12,7 +12,9 @@ router.post('/post', checkAuth, body('text', 'Canot post empty message').trim().
 
 router.get('/posts', checkAuth, getPosts);
 
-router.put('/updatePost', checkAuth, updatePost)
+router.put('/updatePost', [body('text', 'Canot post empty message').trim().notEmpty()
+    .isLength({ min: 15 })
+    .withMessage("post minimum 15 letters required"), body('postId', 'Canot post empty message')], checkAuth, updatePost)
 
 router.delete('/delete/:postId', checkAuth, deletePost)
 
