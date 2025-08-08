@@ -30,6 +30,8 @@ https://github.com/Regu1999/Community-Platform-Task
 **Profile Page**
 
 - View a profile info and posts
+- Edit Posts
+- Delete Posts
 
 **Responsive Design**
 
